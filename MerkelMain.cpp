@@ -5,6 +5,7 @@ MerkelMain::MerkelMain() {}
 
 void MerkelMain::init() 
 {
+  printMenu();
   int userOption;
   while(true)
     {

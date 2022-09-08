@@ -4,16 +4,17 @@
 #include <vector>
 
 class MerkelMain {
-public:
-  MerkelMain();
-  void init();
-  void printMenu();
-  void printHelp();
-  void enterAsk();
-  void enterBid();
-  void printWallet();
-  void printMarketStats();
-  void gotoNextTimeframe();
-  int getUserOption();
-  void processUserOption(int userOption);
+  public:
+    MerkelMain();
+    void init();
+  private:
+    void printMenu();
+    void printHelp();
+    void enterAsk();
+    void enterBid();
+    void printWallet();
+    void printMarketStats();
+    void gotoNextTimeframe();
+    int getUserOption();
+    void processUserOption(int userOption);
 };
