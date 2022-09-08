@@ -5,6 +5,7 @@ MerkelMain::MerkelMain() {}
 
 void MerkelMain::init() 
 {
+  loadOrderBook();
   printMenu();
   int userOption;
   while(true)
@@ -12,6 +13,13 @@ void MerkelMain::init()
       userOption=getUserOption();
       processUserOption(userOption);
     }
+}
+
+void MerkelMain::loadOrderBook()
+{
+  OrderBookEntry obe{"BTC/USDT", "2020/03/17 17:01:24.884492", 2, 3,
+                   OrderBookType::bid};
+  orders.push_back(obe);
 }
 void MerkelMain::printMenu() {
   // 1 print help
@@ -31,7 +39,8 @@ void MerkelMain::printMenu() {
 }
 
 void MerkelMain::printMarketStats() {
-  std::cout << "Market looks good. " << std::endl;
+  std::cout << "OrderBook contains: " <<orders.size()<<std::endl;
+  
 }
 void MerkelMain::printHelp() {
   std::cout << "Help - your aim is to make money. Analyse the market and make "
