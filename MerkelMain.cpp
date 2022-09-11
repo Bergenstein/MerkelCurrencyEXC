@@ -3,22 +3,19 @@
 
 MerkelMain::MerkelMain() {}
 
-void MerkelMain::init() 
-{
+void MerkelMain::init() {
   loadOrderBook();
   printMenu();
   int userOption;
-  while(true)
-    {
-      userOption=getUserOption();
-      processUserOption(userOption);
-    }
+  while (true) {
+    userOption = getUserOption();
+    processUserOption(userOption);
+  }
 }
 
-void MerkelMain::loadOrderBook()
-{
+void MerkelMain::loadOrderBook() {
   OrderBookEntry obe{"BTC/USDT", "2020/03/17 17:01:24.884492", 2, 3,
-                   OrderBookType::bid};
+                     OrderBookType::bid};
   orders.push_back(obe);
 }
 void MerkelMain::printMenu() {
@@ -39,8 +36,7 @@ void MerkelMain::printMenu() {
 }
 
 void MerkelMain::printMarketStats() {
-  std::cout << "OrderBook contains: " <<orders.size()<<std::endl;
-  
+  std::cout << "OrderBook contains: " << orders.size() << std::endl;
 }
 void MerkelMain::printHelp() {
   std::cout << "Help - your aim is to make money. Analyse the market and make "
@@ -96,4 +92,27 @@ void MerkelMain::processUserOption(int userOption) {
   {
     gotoNextTimeframe();
   }
+}
+
+void MerkelMain::initialize() {
+
+  while (true) {
+    int userOption;
+    printMenu();
+    launchOrderBook();
+    userOption = getUserOption();
+    processUserOption(userOption);
+  }
+}
+
+void MerkelMain::launchOrderBook() {
+  // put orders inside of the orderbook vector
+  // call the constructor to create an OBE
+  OrderBookEntry obe{"DOGE/BTC", "2020/03/17 17:01:24.884492", 17737965.333333,
+                     0.00000006, OrderBookType::ask};
+  OrderBookEntry obe2{"DOGE/BTC", "2020/03/17 17:01:24.884492", 17737965.333333,
+                     0.00000006, OrderBookType::bid};
+
+  orders.push_back(obe);
+  orders.push_back(obe2);
 }

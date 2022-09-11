@@ -13,4 +13,5 @@ public:
   double amount;
   OrderBookType orderType;
   std::vector<OrderBookEntry> orders;
+  static OrderBookType stringToOrderBookType(std::string _str);
 };

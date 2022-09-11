@@ -2,11 +2,13 @@
 #include "OrderBookEntry.h"
 #include <string>
 #include <vector>
+#include "CSVReader.h"
 
 class MerkelMain {
   public:
     MerkelMain();
     void init();
+    void initialize();
   private:
     /**generate OrderBookEntry objects by calling its constructor
     and pushes them back to a vector. 
@@ -23,4 +25,7 @@ class MerkelMain {
     int getUserOption();
     void processUserOption(int userOption);
     std::vector<OrderBookEntry>orders;
+    void launchOrderBook();
+    CSVReader reader{"20200317.csv"};
+    
 };
